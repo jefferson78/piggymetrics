@@ -34,9 +34,9 @@ jobs:
         
     - name: build, scan and tag image
       run: |
-        docker build -f $GITHUB_WORKSPACE/account-service/Dockerfile -t piggymetrics-account-service:${{ github.run_number }} .
-        trivy --exit-code 0 --severity MEDIUM,HIGH piggymetrics-account-service:${{ github.run_number }}
-        docker tag piggymetrics-account-service:${{ github.run_number }} docker.pkg.github.com/srivatsamarichi/piggymetrics-account-service:${{ github.run_number }}
+        docker build -f $GITHUB_WORKSPACE/account-service/Dockerfile -t docker.pkg.github.com/srivatsamarichi/piggymetrics-account-service:${{ github.run_number }} .
+        trivy --exit-code 0 --severity MEDIUM,HIGH docker.pkg.github.com/srivatsamarichi/piggymetrics-account-service:${{ github.run_number }}
+       # docker tag piggymetrics-account-service:${{ github.run_number }} docker.pkg.github.com/srivatsamarichi/piggymetrics-account-service:${{ github.run_number }}
    
     - name: push image
       run: |
