@@ -28,7 +28,7 @@ jobs:
     
     - name: Docker login
       run: |
-        echo "${{ secrets.GCRACCESSTOKEN }}" | docker login ghcr.io/srivatsamarichi/piggymetrics -u srivatsamarichi -p {{secrets.GITHUB_TOKEN}}
+        echo "${{ secrets.GCRACCESSTOKEN }}" | docker login ghcr.io/srivatsamarichi/piggymetrics -u srivatsamarichi -p ${{ secrets.CR_PAT }}
     
     - name: Docker push
       run: |
