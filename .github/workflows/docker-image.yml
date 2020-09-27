@@ -28,7 +28,7 @@ jobs:
     
     - name: Docker login
       run: |
-        echo "${{ secrets.GCRACCESSTOKEN }}" | docker login -u srivatsamarichi -p ${{ secrets.GITHUB_TOKEN }}
+        echo "${{ secrets.GCRACCESSTOKEN }}" | docker login -u srivatsamarichi -p ${{ secrets.GCRACCESSTOKEN }}
     
     - name: Docker push
       run: |
