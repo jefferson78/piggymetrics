@@ -24,8 +24,7 @@ jobs:
       run: mvn -B package --file pom.xml
     
     - name: Build the Docker image
-      working-directory: ./account-service/
-      run: docker build -t ghcr.io/srivatsamarichi/piggymetrics:${{ github.run_number }} .
+      run: docker build -t ghcr.io/srivatsamarichi/piggymetrics:${{ github.run_number }} -f .\account-service\Dockerfile .
     
     - name: Docker login
       run: |
