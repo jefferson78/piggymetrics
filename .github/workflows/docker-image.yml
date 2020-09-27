@@ -1,0 +1,28 @@
+name: Piggymetrics.Account-Service.Docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build the Docker image
+      working-directory: ./account-service/
+      run: docker build -t ghcr.io/srivatsamarichi/piggymetrics:${{ github.run_number }} .
+    
+    - name: Docker login
+      run: |
+        echo "${{ secrets.GCRACCESSTOKEN }}" | docker login -u srivatsamarichi -p ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Docker push
+      run: |
+        docker push ghcr.io/srivatsamarichi/piggymetrics:${{ github.run_number }}
