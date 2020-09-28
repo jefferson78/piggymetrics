@@ -28,7 +28,7 @@ jobs:
     
     - name: Docker login
       run: |
-        echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+        echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u srivatsamarichi -p 9dc08760df6d967332b076283148900694dce3d7
     
     - name: Docker push
       run: |
