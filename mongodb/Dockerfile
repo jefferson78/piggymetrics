@@ -1,6 +1,6 @@
 FROM mongo:3
 
-ADD init.sh /init.sh
+ADD mongodb/init.sh /init.sh
 ADD mongodb/dump /
 
 RUN \
