@@ -35,7 +35,7 @@ jobs:
         password: ${{ secrets.CR_PAT }}
         registry: ghcr.io
         #repository: srivatsamarichi
-        tags: piggymetrics-turbine-stream-service:${{ github.run_number }}
+        tags: -turbine-stream-service:${{ github.run_number }}
         dockerfile: turbine-stream-service/Dockerfile
         #labels: turbine-stream-service
         push: true
