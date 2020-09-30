@@ -34,10 +34,10 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.CR_PAT }}
         registry: ghcr.io
-        repository: srivatsamarichi
+        #repository: srivatsamarichi
         tags: piggymetrics-turbine-stream-service:${{ github.run_number }}
         dockerfile: turbine-stream-service/Dockerfile
-        labels: turbine-stream-service
+        #labels: turbine-stream-service
         push: true
     
     #- name: Docker Build
