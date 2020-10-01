@@ -28,21 +28,10 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
     
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v1.1.1
-      with:
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.CR_PAT }}
-        registry: ghcr.io
-        #repository: srivatsamarichi
-        tags: piggymetrics-turbine-stream-service:${{ github.run_number }}
-        dockerfile: turbine-stream-service/Dockerfile
-        labels: turbine-stream-service
-        push: true
-    
-    #- name: Docker Build
-    #  run: docker build -t ghcr.io/srivatsamarichi/piggymetrics-turbine-stream-service:${{ github.run_number }} -f turbine-stream-service/Dockerfile .
-    
-    #- name: Docker push
-    #  run: |
-    #    docker push ghcr.io/srivatsamarichi/piggymetrics-turbine-stream-service:${{ github.run_number }}
+    - name: Docker Build
+      run: |
+        docker build -t ghcr.io/srivatsamarichi/piggymetrics-turbine-stream-service:${{ github.run_number }} -f turbine-stream-service/Dockerfile .
+
+    - name: Docker push
+      run: |
+       docker push ghcr.io/srivatsamarichi/piggymetrics-turbine-stream-service:${{ github.run_number }}
